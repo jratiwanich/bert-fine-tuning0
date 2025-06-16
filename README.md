@@ -1,0 +1,82 @@
+# bert-base-uncased Tutorial Project
+
+This repository demonstrates various approaches to intent classification and NLP using Hugging Face Transformers, scikit-learn, and integration with external data sources like PostgreSQL. It includes scripts for training models on CSV and JSON data, using pretrained pipelines, and training directly from a database.
+
+## Table of Contents
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Python Scripts Explained](#python-scripts-explained)
+- [Other Files](#other-files)
+- [License](#license)
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repo-url>
+   cd bert-base-uncased
+   ```
+2. **Create a virtual environment (recommended):**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   If you plan to use the PostgreSQL integration, also install:
+   ```bash
+   pip install sqlalchemy psycopg2-binary
+   ```
+
+## Project Structure
+
+```
+bert-base-uncased/
+├── .gitignore
+├── requirements.txt
+├── README.md
+├── main.py
+├── json_custom_model.py
+├── csv_custom_model.py
+├── train_postgres.py
+├── training-process.mmd
+├── cursor_using_train_random_forest_for_in.md
+└── .venv/
+```
+
+## Python Scripts Explained
+
+### main.py
+Demonstrates the use of Hugging Face's pretrained pipelines for sentiment analysis and intent classification. It loads a sentiment analysis pipeline and an intent classification pipeline, runs them on a sample sentence, and prints the results.
+
+### json_custom_model.py
+Trains a custom intent classification model using Hugging Face Transformers, reading data from a JSON file with 'text' and 'label' fields. The script:
+- Loads and preprocesses the data
+- Tokenizes the text
+- Sets up and fine-tunes a transformer model
+- Evaluates and saves the model and tokenizer
+
+### csv_custom_model.py
+Similar to `json_custom_model.py`, but reads the dataset from a CSV file with 'text' and 'label' columns. The workflow is otherwise identical: data loading, preprocessing, tokenization, model training, evaluation, and saving.
+
+### train_postgres.py
+Connects directly to a PostgreSQL database, loads the `camera_events` table, cleans and featurizes the data using external preprocessing utilities (assumed to be available in your environment), trains a RandomForestClassifier, and saves the trained model. Update the database credentials at the top of the script before use.
+
+## Other Files
+
+### requirements.txt
+Lists the core dependencies: `transformers`, `torch`, and `scikit-learn`. For database integration, add `sqlalchemy` and `psycopg2-binary`.
+
+### .gitignore
+Standard Python, data, and IDE ignore patterns to keep your repository clean.
+
+### training-process.mmd
+A Mermaid diagram describing the typical machine learning training workflow: data preparation, splitting, training, validation, and evaluation.
+
+### cursor_using_train_random_forest_for_in.md
+A transcript or documentation file, possibly exported from a code assistant session, containing Q&A and explanations about model choices and implementation details.
+
+## License
+Specify your license here (e.g., MIT, Apache 2.0, etc.). 

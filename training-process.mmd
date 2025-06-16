@@ -1,0 +1,8 @@
+graph TD
+    A[Prepare Data] -->|Split| B[Training Set]
+    A -->|Split| C[Validation Set]
+    A -->|Split| D[Test Set]
+    
+    B -->|Train| E[Model]
+    C -->|Check| F[Adjust Parameters]
+    D -->|Final Test| G[Evaluate]
