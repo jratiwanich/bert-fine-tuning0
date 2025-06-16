@@ -69,14 +69,21 @@ Connects directly to a PostgreSQL database, loads the `camera_events` table, cle
 ### requirements.txt
 Lists the core dependencies: `transformers`, `torch`, and `scikit-learn`. For database integration, add `sqlalchemy` and `psycopg2-binary`.
 
-### .gitignore
-Standard Python, data, and IDE ignore patterns to keep your repository clean.
-
 ### training-process.mmd
 A Mermaid diagram describing the typical machine learning training workflow: data preparation, splitting, training, validation, and evaluation.
+```mermaid
+graph TD
+    A[Prepare Data] -->|Split| B[Training Set]
+    A -->|Split| C[Validation Set]
+    A -->|Split| D[Test Set]
+    
+    B -->|Train| E[Model]
+    C -->|Check| F[Adjust Parameters]
+    D -->|Final Test| G[Evaluate]
+```
 
 ### cursor_using_train_random_forest_for_in.md
 A transcript or documentation file, possibly exported from a code assistant session, containing Q&A and explanations about model choices and implementation details.
 
 ## License
-Specify your license here (e.g., MIT, Apache 2.0, etc.). 
+MIT
