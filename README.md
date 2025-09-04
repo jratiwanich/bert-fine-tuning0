@@ -9,44 +9,8 @@ This repository demonstrates various approaches to intent classification and NLP
 - [Other Files](#other-files)
 - [License](#license)
 
-## Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repo-url>
-   cd bert-base-uncased
-   ```
-2. **Create a virtual environment (recommended):**
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   If you plan to use the PostgreSQL integration, also install:
-   ```bash
-   pip install sqlalchemy psycopg2-binary
-   ```
-
-## Project Structure
-
-```
-bert-base-uncased/
-├── .gitignore
-├── requirements.txt
-├── README.md
-├── main.py
-├── json_custom_model.py
-├── csv_custom_model.py
-├── train_postgres.py
-├── training-process.mmd
-├── cursor_using_train_random_forest_for_in.md
-└── .venv/
-```
-
-## Python Scripts Explained
+## Project explanation
 
 ### main.py
 Demonstrates the use of Hugging Face's pretrained pipelines for sentiment analysis and intent classification. It loads a sentiment analysis pipeline and an intent classification pipeline, runs them on a sample sentence, and prints the results.
