@@ -16,7 +16,7 @@ sentence = "Hi, I'm having trouble using my email account."
 sentiment_result = sentiment_analyzer(sentence)
 
 # 4. Print the sentiment analysis output (label and score)
-print("Sentiment analysis output:", sentiment_result)
+print("Sentiment analysis SCORE:", sentiment_result)
 
 # 5. Load a text classification pipeline with the Falconsai/intent_classification model for intent classification
 classifier = pipeline(
